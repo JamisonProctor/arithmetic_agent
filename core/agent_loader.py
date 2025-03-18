@@ -4,6 +4,11 @@ from langchain_ollama import ChatOllama
 from tools.arithmetic_tools import basic_tools
 from core.assistant_builder import build_assistant_with_tools
 
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 def load_agent(model_name: str):
     # Load the system prompt
     with open("prompts/basic_prompt.md", "r") as f:

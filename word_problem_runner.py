@@ -28,14 +28,14 @@ def save_run_log(model_name, problem_id, system_prompt, problem_text, solution_t
         f.write("## Word Problem\n")
         f.write(problem_text.strip() + "\n\n")
 
-        f.write("## Ground Truth Solution\n")
-        f.write(solution_text.strip() + "\n\n")
-
         f.write("## Agent Messages\n")
         for i, msg in enumerate(agent_output["messages"]):
             role = msg.type.upper()
             f.write(f"### Step {i+1} ({role})\n")
             f.write(str(msg.content).strip() + "\n\n")
+
+        f.write("## Ground Truth Solution\n")
+        f.write(solution_text.strip() + "\n")
 
 # --- Run all problems for a specific model ---
 def run_all_problems_for_model(model_name, problem_dir="word_problems"):
