@@ -9,7 +9,7 @@ with open("prompts/basic_prompt.md", "r") as f:
 sys_msg = SystemMessage(content=prompt)
 
 # Create LLM (note: no parallel_tool_calls support in Ollama)
-llm = ChatOllama(model="llama3.1:8b", temperature=0)
+llm = ChatOllama(model="llama3.1", temperature=0)
 llm_with_tools = llm.bind_tools(basic_tools)  # no parallel_tool_calls param
 
 # Build agent

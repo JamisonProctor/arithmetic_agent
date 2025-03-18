@@ -24,9 +24,17 @@ def load_agent(model_name: str):
         llm = ChatOpenAI(model="gpt-4o", temperature=0)
         llm_with_tools = llm.bind_tools(basic_tools, parallel_tool_calls=True)
 
-    # Ollama / LLaMA models
-    elif model_name == "llama3-8b":
-        llm = ChatOllama(model="llama3.1:8b", temperature=0)
+    # Ollama models
+    elif model_name == "llama3.1":
+        llm = ChatOllama(model="llama3.1", temperature=0)
+        llm_with_tools = llm.bind_tools(basic_tools)
+
+    elif model_name == "granite3.2":
+        llm = ChatOllama(model="granite3.2", temperature=0)
+        llm_with_tools = llm.bind_tools(basic_tools)
+
+    elif model_name == "mistral-nemo":
+        llm = ChatOllama(model="mistral-nemo", temperature=0)
         llm_with_tools = llm.bind_tools(basic_tools)
 
     else:
