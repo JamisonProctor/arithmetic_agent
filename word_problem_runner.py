@@ -83,5 +83,5 @@ def run_all_problems_for_model(model_name, problem_dir="word_problems"):
 
 # --- Entry point ---
 if __name__ == "__main__":
-    for model in ["llama3.1"]: 
+    for model in ["gpt-3.5-turbo", "gpt-4o", "llama3.1", "granite3.2", "mistral-nemo", "qwen2.5"]: 
         run_all_problems_for_model(model)
