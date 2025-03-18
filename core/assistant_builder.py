@@ -1,7 +1,7 @@
 from langgraph.graph import START, StateGraph, MessagesState
 from langgraph.prebuilt import tools_condition, ToolNode
 
-def build_math_agent(llm, tools, sys_msg):
+def build_assistant_with_tools(llm, tools, sys_msg):
     def assistant(state):
         return {"messages": [llm.bind_tools(tools).invoke([sys_msg] + state["messages"])]}
 
