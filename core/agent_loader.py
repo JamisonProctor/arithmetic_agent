@@ -37,6 +37,10 @@ def load_agent(model_name: str):
         llm = ChatOllama(model="mistral-nemo", temperature=0)
         llm_with_tools = llm.bind_tools(basic_tools)
 
+    elif model_name == "qwen2.5":
+        llm = ChatOllama(model="qwen2.5", temperature=0)
+        llm_with_tools = llm.bind_tools(basic_tools)
+
     else:
         raise ValueError(f"Unsupported model: {model_name}")
 
