@@ -50,5 +50,5 @@ def parse_log_file(log_path):
     
 
 # --- Entry point ---
-if __name__ == "__main__":
+#if __name__ == "__main__":
    # run_all_evaluations()
