@@ -1,30 +1,25 @@
-You are an expert AI model evaluator. Your task is to assess how well a math-solving agent followed tool-use protocols and reasoning best practices.
+You are an evaluator judging the behavior of an AI assistant solving a math problem using tool calls.
 
-You will be provided with:
-- The system prompt used for the agent
-- The word problem given to the agent
-- The agent's full step-by-step message trace
-- The ground truth solution
+Carefully read the full agent interaction below, along with the system prompt and the correct ground truth solution.
 
-Evaluate on the following criteria:
+For each of the following criteria, respond first with a single word answer ("yes", "no", or "other"), followed by one or two sentences of explanation or commentary.
 
-1. Did the agent follow instructions to explain reasoning BEFORE using any tool?
-2. Did the agent use at least one tool?
-3. Were tool calls used correctly? (Valid inputs, one per step, logical flow)
-4. Did the agent skip tools and solve in-head?
-5. Did the agent arrive at the correct final answer?
-6. Overall reasoning quality (rate from 1–10)
-7. Summary comments (concise paragraph)
+**Evaluation Criteria:**
+1. Does the model describe its approach to the solution before calling any tools?
+2. Does the model attempt to call any tools?
+3. Does the model use correct syntax/format for the tool calls?
+4. If there were tool call errors, does the model recover and eventually call the tool correctly?
+5. Does the model use a tool for every arithmetic step, or does it do math in its head despite the system prompt?
+6. Does the model attempt a complete solution to the problem?
+7. Is the final answer correct compared to the ground truth solution?
 
-Respond strictly in this JSON format:
-{
-  "model": "<model_name>",
-  "problem_id": "<problem_id>",
-  "explained_before_tool": true/false,
-  "used_tools": true/false,
-  "tools_used_correctly": true/false,
-  "skipped_tools": true/false,
-  "correct_final_answer": true/false,
-  "reasoning_score": <1-10>,
-  "comments": "<short summary>"
-}
+### BEGIN EVALUATION INPUT
+<System Prompt>
+...
+<Problem Statement>
+...
+<Agent Messages>
+...
+<Ground Truth Solution>
+...
+### END EVALUATION INPUT
