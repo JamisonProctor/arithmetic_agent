@@ -58,13 +58,5 @@ Here's how we arrived at this answer:
 2. Then, to find the original number before multiplying by 2 and subtracting 138, we divided 240 by 2: \(\frac{240}{2} = 120.0\).
 
 ## Ground Truth Solution
-Let **_x_** be the number he chose.
 
-The equation becomes:  
-**2 × x − 138 = 102**
-
-Solve for **_x_**:
-- **2x = 102 + 138 = 240**
-- **x = 240 ÷ 2 = 120**
-
-### **Answer:** The number he chose was **120**.
+The number he chose was 120.

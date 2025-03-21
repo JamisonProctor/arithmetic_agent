@@ -50,11 +50,6 @@ The salesman sold 120 kilograms of pears in the morning. In the afternoon, he so
 So, he sold 120 kilograms in the morning and 240 kilograms in the afternoon.
 
 ## Ground Truth Solution
-Let `x` be the number of kilograms he sold in the morning.  
-Then in the afternoon he sold `2x` kilograms.  
-So, the total is `x + 2x = 3x`. This must be equal to 360.  
-`3x = 360 → x = 120`
 
-Therefore:
 - Morning: 120 kg
 - Afternoon: 240 kg

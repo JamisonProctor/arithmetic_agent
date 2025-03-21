@@ -77,27 +77,6 @@ So, the speed of the truck is 45 km/h.
 Since the car drives 5 km/hr faster than the truck, its speed is (45 + 5) = 50 km/h.
 
 ## Ground Truth Solution
-We use the formula: **Distance = Speed × Time**
 
-Let **_x_** be the speed of the truck (in km/hr).  
-Then the car's speed is **x + 5 km/hr**.
-
-Both travel for 4 hours before meeting.
-
-| Vehicle | Speed (km/hr) | Time (hr) | Distance (km)      |
-|--------|----------------|-----------|---------------------|
-| Car    | x + 5          | 4         | 4(x + 5)            |
-| Truck  | x              | 4         | 4x                  |
-
-Total distance:  
-**4(x + 5) + 4x = 380**
-
-Simplify:
-- **4x + 20 + 4x = 380**
-- **8x + 20 = 380**
-- **8x = 360**
-- **x = 45**
-
-### **Answer:**  
-- Truck speed = **45 km/hr**  
-- Car speed = **50 km/hr**
+- Truck speed = 45 km/hr 
+- Car speed = 50 km/hr
