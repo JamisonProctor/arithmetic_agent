@@ -16,13 +16,14 @@ def load_problem_content(problem_path):
     return problem, solution
 
 # --- Save full trace log as markdown ---
-def save_run_log(model_name, problem_id, system_prompt, problem_text, solution_text, agent_output, output_dir="logs"):
+def save_run_log(model_name, problem_id, system_prompt, problem_text, solution_text, agent_output, tool_calls_log, output_dir="logs"):
     os.makedirs(output_dir, exist_ok=True)
     log_path = Path(output_dir) / f"{model_name}__{problem_id}.md"
+
     with open(log_path, "w") as f:
         f.write(f"# Model: {model_name}\n")
         f.write(f"## Word Problem ID: {problem_id}\n\n")
-        
+
         f.write("## System Prompt\n")
         f.write(system_prompt.strip() + "\n\n")
 
@@ -30,17 +31,32 @@ def save_run_log(model_name, problem_id, system_prompt, problem_text, solution_t
         f.write(problem_text.strip() + "\n\n")
 
         f.write("## Agent Messages\n")
+
+        tool_call_iter = iter(tool_calls_log)
+        tool_call_index = 0
+
         for i, msg in enumerate(agent_output["messages"]):
             role = msg.type.upper()
             f.write(f"### Step {i+1} ({role})\n")
             f.write(str(msg.content).strip() + "\n\n")
+
+            # Inject tool call if it occurred immediately after an AI message
+            if role == "AI" and tool_calls_log and tool_call_index < len(tool_calls_log):
+                # Optional: Add tool call as its own "TOOL CALL" step between messages
+                f.write(f"### Step {i+1}.1 (TOOL CALL)\n")
+                f.write(f"{tool_calls_log[tool_call_index]}\n\n")
+                tool_call_index += 1
 
         f.write("## Ground Truth Solution\n")
         f.write(solution_text.strip() + "\n")
 
 # --- Run all problems for a specific model ---
 def run_all_problems_for_model(model_name, problem_dir="word_problems"):
-    agent_graph = load_agent(model_name)
+    # Prepare tool_calls_log for logging tool calls
+    tool_calls_log = []
+
+    # Load agent graph (now also returns log reference)
+    agent_graph, tool_calls_log = load_agent(model_name)
 
     # Load system prompt to include in logs
     with open("prompts/basic_prompt.md", "r") as f:
@@ -52,32 +68,19 @@ def run_all_problems_for_model(model_name, problem_dir="word_problems"):
         problem_id = problem_path.stem.replace("problem_", "")
         print(f"Running {model_name} on problem {problem_id}...")
 
+        # Clear the log for each problem
+        tool_calls_log.clear()
+
         # Load problem text and ground truth solution
         problem_text, solution_text = load_problem_content(problem_path)
 
         # Prepare messages and invoke agent
         messages = [HumanMessage(content=problem_text)]
         config = {"configurable": {"thread_id": "1"}, "recursion_limit": 100}
-        try:
-            result = agent_graph.invoke({"messages": messages}, config=config)
-            save_run_log(model_name, problem_id, system_prompt, problem_text, solution_text, result)
+        result = agent_graph.invoke({"messages": messages}, config=config)
 
-        except GraphRecursionError:
-            print(f"⚠️ Recursion limit hit for {model_name} on problem {problem_id} — logging failure and continuing...")
-
-            os.makedirs("logs", exist_ok=True)
-            log_path = Path("logs") / f"{model_name}__{problem_id}.md"
-            with open(log_path, "w") as f:
-                f.write(f"# Model: {model_name}\n")
-                f.write(f"## Word Problem ID: {problem_id}\n\n")
-                f.write("## System Prompt\n")
-                f.write(system_prompt.strip() + "\n\n")
-                f.write("## Word Problem\n")
-                f.write(problem_text.strip() + "\n\n")
-                f.write("## Agent Messages\n")
-                f.write("*[Agent failed to generate a solution: Recursion limit exceeded]*\n\n")
-                f.write("## Ground Truth Solution\n")
-                f.write(solution_text.strip() + "\n")
+        # Save full output trace, now including tool call log
+        save_run_log(model_name, problem_id, system_prompt, problem_text, solution_text, result, tool_calls_log)
 
     print(f"✅ Completed all problems for model: {model_name}")
 

@@ -53,6 +53,13 @@ Then answer the evaluation question shown at the end.
 --- GROUND TRUTH SOLUTION ---
 {log_sections["ground_truth"]}
 
+Agent Messages are formatted in distinct steps, each prefixed by a role label: HUMAN, AI, or TOOL.
+
+Steps labeled (AI) are messages authored by the agent itself.
+Steps labeled (TOOL) are tool outputs the agent receives in response to tool calls.
+
+When evaluating whether the agent described its approach before calling tools, consider whether there is a thoughtful AI message before any TOOL step appears.
+
 --- EVALUATION QUESTION ---
 {question_text}
 
@@ -77,7 +84,7 @@ def evaluate_question(llm, log_sections, question_text):
     first_line = lines[0].lower() if lines else ""
     first_word = first_line.split()[0].strip(" .:") if first_line else "other"
 
-    if first_word not in ["Yes", "No", "Other"]:
+    if first_word not in ["yes", "no", "other"]:
         first_word = "other"
 
     comment = response_text.strip()
