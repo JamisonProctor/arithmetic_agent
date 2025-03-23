@@ -35,17 +35,14 @@ def save_run_log(model_name, problem_id, system_prompt, problem_text, solution_t
         tool_call_iter = iter(tool_calls_log)
         tool_call_index = 0
 
+
         for i, msg in enumerate(agent_output["messages"]):
             role = msg.type.upper()
-            f.write(f"### Step {i+1} ({role})\n")
-            f.write(str(msg.content).strip() + "\n\n")
-
-            # Inject tool call if it occurred immediately after an AI message
-            if role == "AI" and tool_calls_log and tool_call_index < len(tool_calls_log):
-                # Optional: Add tool call as its own "TOOL CALL" step between messages
-                f.write(f"### Step {i+1}.1 (TOOL CALL)\n")
-                f.write(f"{tool_calls_log[tool_call_index]}\n\n")
-                tool_call_index += 1
+            if "[TOOL CALL]" in msg.content:
+                f.write(f"### Step {i+1} (TOOL CALL)\n")
+            else:
+                f.write(f"### Step {i+1} ({role})\n")
+            f.write(msg.content.strip() + "\n\n")
 
         f.write("## Ground Truth Solution\n")
         f.write(solution_text.strip() + "\n")
@@ -86,5 +83,12 @@ def run_all_problems_for_model(model_name, problem_dir="word_problems"):
 
 # --- Entry point ---
 if __name__ == "__main__":
-    for model in ["gpt-3.5-turbo", "gpt-4o", "llama3.1", "granite3.2", "mistral-nemo", "qwen2.5"]: 
+    for model in [
+        "gpt-3.5-turbo", 
+        "gpt-4o", 
+        #"llama3.1", 
+        #"granite3.2", 
+        #"mistral-nemo", 
+        #"qwen2.5"
+        ]: 
         run_all_problems_for_model(model)

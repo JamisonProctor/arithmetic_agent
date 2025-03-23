@@ -8,6 +8,8 @@ def add(a: int | float, b: int | float) -> float:
     Returns:
         The result of a + b.
     """
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("add: both arguments must be int or float")
     return a + b
 
 def subtract(a: int | float, b: int | float) -> float:
@@ -20,6 +22,8 @@ def subtract(a: int | float, b: int | float) -> float:
     Returns:
         The result of a - b.
     """
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("subtract: both arguments must be int or float")
     return a - b
 
 def multiply(a: int | float, b: int | float) -> float:
@@ -32,6 +36,8 @@ def multiply(a: int | float, b: int | float) -> float:
     Returns:
         The result of a * b.
     """
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("multiply: both arguments must be int or float")
     return a * b
 
 def divide(a: int | float, b: int | float) -> float:
@@ -44,6 +50,8 @@ def divide(a: int | float, b: int | float) -> float:
     Returns:
         The result of a / b.
     """
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("divide: both arguments must be int or float")
     return a / b
 
 def power(a: int | float, b: int | float) -> float:
@@ -56,6 +64,8 @@ def power(a: int | float, b: int | float) -> float:
     Returns:
         The result of a raised to the power of b.
     """
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("power: both arguments must be int or float")
     return a ** b
 
 def modulo(a: int | float, b: int | float) -> float:
@@ -68,6 +78,8 @@ def modulo(a: int | float, b: int | float) -> float:
     Returns:
         The remainder of a divided by b.
     """
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("modulo: both arguments must be int or float")
     return a % b
 
 def absolute(a: int | float) -> float:
@@ -79,6 +91,8 @@ def absolute(a: int | float) -> float:
     Returns:
         The absolute value of a.
     """
+    if not isinstance(a, (int, float)):
+        raise TypeError("absolute: argument must be int or float")
     return abs(a)
 
 def logarithm(a: int | float, base: int | float = 10) -> float:
@@ -92,6 +106,8 @@ def logarithm(a: int | float, base: int | float = 10) -> float:
         The logarithm of a with the given base.
     """
     import math
+    if not isinstance(a, (int, float)) or not isinstance(base, (int, float)):
+        raise TypeError("logarithm: both arguments must be int or float")
     return math.log(a, base)
 
 def square_root(a: int | float) -> float:
@@ -104,8 +120,26 @@ def square_root(a: int | float) -> float:
         The square root of a.
     """
     import math
+    if not isinstance(a, (int, float)):
+        raise TypeError("square_root: argument must be int or float")
     return math.sqrt(a)
 
 # Tool lists for clean reuse
-basic_tools = [add, subtract, multiply, divide]
-extended_tools = [add, subtract, multiply, divide, power, modulo, absolute, logarithm, square_root]
+basic_tools = [
+    {"name": "add", "func": add},
+    {"name": "subtract", "func": subtract},
+    {"name": "multiply", "func": multiply},
+    {"name": "divide", "func": divide},
+]
+
+extended_tools = [
+    {"name": "add", "func": add},
+    {"name": "subtract", "func": subtract},
+    {"name": "multiply", "func": multiply},
+    {"name": "divide", "func": divide},
+    {"name": "power", "func": power},
+    {"name": "modulo", "func": modulo},
+    {"name": "absolute", "func": absolute},
+    {"name": "logarithm", "func": logarithm},
+    {"name": "square_root", "func": square_root},
+]

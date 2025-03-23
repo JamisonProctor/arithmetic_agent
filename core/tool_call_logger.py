@@ -1,41 +1,38 @@
-# core/tool_call_logger.py
-
-from langchain_core.messages import ToolMessage
-from langgraph.graph import MessagesState
+from langchain_core.messages import ToolMessage, AIMessage
 
 class ToolCallLogger:
-    def __init__(self, tools, log_list):
+    def __init__(self, tools, tool_log_list):
         self.tools = tools
-        self.log_list = log_list
+        self.tool_log_list = tool_log_list
+        self.tool_map = {t["name"]: t["func"] for t in tools}
 
-    def __call__(self, state: MessagesState):
-        last_message = state["messages"][-1]
-        tool_messages = []
+    def __call__(self, state):
+        last_msg = state["messages"][-1]
+        new_messages = []
 
-        if hasattr(last_message, "tool_calls"):
-            tool_calls = last_message.tool_calls
+        if not hasattr(last_msg, "tool_calls") or not last_msg.tool_calls:
+            return state
 
-            for call in tool_calls:
-                name = call.get("name")
-                args = call.get("args", {})
-                tool_call_id = call.get("id")
+        for call in last_msg.tool_calls:
+            name = call.get("name")
+            args = call.get("args", {})
+            tool_log_text = f"[TOOL CALL] {name}({', '.join(f'{k}={v}' for k, v in args.items())})"
 
-                # Log tool call string
-                args_str = ", ".join(f"{k}={v}" for k, v in args.items())
-                tool_call_str = f"{name}({args_str})"
-                self.log_list.append(tool_call_str)
-
-                # Match tool by function name (not .name — your tools are regular functions)
-                tool_func = next((t for t in self.tools if t.__name__ == name), None)
-
+            try:
+                tool_func = self.tool_map.get(name)
                 if not tool_func:
-                    result = f"[ERROR: Unknown tool '{name}']"
-                else:
-                    try:
-                        result = tool_func(**args)
-                    except Exception as e:
-                        result = f"[ERROR: {str(e)}]"
+                    raise Exception("Unknown tool")
 
-                tool_messages.append(ToolMessage(tool_call_id=tool_call_id, content=str(result)))
+                result = tool_func(**args)
+                tool_log_text += f" -> {result}"
+                tool_output = ToolMessage(content=str(result), tool_call_id=call.get("id", "unknown"))
+            except Exception as e:
+                tool_log_text += f" -> ERROR: {e}"
+                tool_output = ToolMessage(content=f"[TOOL ERROR] {e}", tool_call_id=call.get("id", "unknown"))
 
-        return {"messages": tool_messages}
+            self.tool_log_list.append(tool_log_text)
+
+            new_messages.append(AIMessage(content=tool_log_text))
+            new_messages.append(tool_output)
+
+        return {"messages": state["messages"] + new_messages}
