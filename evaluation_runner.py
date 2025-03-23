@@ -1,54 +1,51 @@
 import os
 import json
 from pathlib import Path
-from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from collections import defaultdict
-from dotenv import load_dotenv
+from evaluation.evaluation_questions import evaluation_questions
+from evaluation.evaluation_utils import parse_log_file, evaluate_question
 
-load_dotenv()
+# Setup LLM
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
-# Load evaluation prompt from file
-with open("prompts/evaluation_prompt.md", "r") as f:
-    EVAL_PROMPT_TEMPLATE = f.read()
+# Directories
+LOGS_DIR = "logs"
+OUTPUT_DIR = "evaluations"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Load final evaluation summary prompt
-with open("prompts/evaluation_summary_prompt.md", "r") as f:
-    SUMMARY_PROMPT_TEMPLATE = f.read()
+# Get all log files
+log_files = sorted(Path(LOGS_DIR).glob("*.md"))
 
-def save_combined_evaluations(evaluations, output_dir):
-    combined_path = Path(output_dir) / "all_evaluations.json"
-    with open(combined_path, "w") as f:
-        json.dump(evaluations, f, indent=2)
+for log_file in log_files:
+    model_name = log_file.name.split("__")[0]
+    problem_id = log_file.name.split("__")[1].split(".")[0]
+    output_path = Path(OUTPUT_DIR) / f"{model_name}__{problem_id}.json"
 
-# --- Parse log file content ---
-def parse_log_file(log_path):
-    with open(log_path, "r") as f:
-        content = f.read()
+    print(f"Evaluating {model_name} on problem {problem_id}...")
 
-    try:
-        model = content.split("# Model:")[1].split("\n")[0].strip()
-        problem_id = content.split("## Word Problem ID:")[1].split("\n")[0].strip()
-        system_prompt = content.split("## System Prompt")[1].split("## Word Problem")[0].strip()
-        problem_text = content.split("## Word Problem")[1].split("## Agent Messages")[0].strip()
-        agent_messages = content.split("## Agent Messages")[1].split("## Ground Truth Solution")[0].strip()
-        solution_text = content.split("## Ground Truth Solution")[1].strip()
-    except Exception as e:
-        raise ValueError(f"Malformed log file {log_path}: {e}")
+    # Load sections
+    log_sections = parse_log_file(log_file)
 
-    return {
-        "model": model,
-        "problem_id": problem_id,
-        "system_prompt": system_prompt,
-        "problem_text": problem_text,
-        "agent_messages": agent_messages,
-        "solution_text": solution_text
-    }
+    # Run evaluation one question at a time
+    eval_results = {}
+    for i, question in enumerate(evaluation_questions):
+        print(f"  Q{i+1}: {question}")
+        try:
+            eval_response = evaluate_question(llm, log_sections, question)
+        except Exception as e:
+            eval_response = {
+                "answer": "error",
+                "comment": f"Error during evaluation: {str(e)}"
+            }
 
-# --- Evaluate single file using GPT-4o ---
+        eval_results[f"Q{i+1}"] = {
+            "question": question,
+            "answer": eval_response.get("answer", "error"),
+            "comment": eval_response.get("comment", "")
+        }
 
-    
+        # Save intermediate results in case of interruption
+        with open(output_path, "w") as f:
+            json.dump(eval_results, f, indent=2)
 
-# --- Entry point ---
-#if __name__ == "__main__":
-   # run_all_evaluations()
+print("✅ Evaluation complete for all log files.")
