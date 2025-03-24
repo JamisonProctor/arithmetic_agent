@@ -3,6 +3,13 @@ from pathlib import Path
 from core.agent_loader import load_agent
 from langchain_core.messages import HumanMessage
 from langgraph.errors import GraphRecursionError
+from tools.arithmetic_tools import basic_tools
+
+# Ensure tools are in the correct format
+if isinstance(basic_tools, list) and all(callable(t) for t in basic_tools):
+    tools = [{"name": t.__name__, "func": t} for t in basic_tools]
+else:
+    tools = basic_tools
 
 # --- Load problem and solution from markdown ---
 def load_problem_content(problem_path):
@@ -86,9 +93,9 @@ if __name__ == "__main__":
     for model in [
         "gpt-3.5-turbo", 
         "gpt-4o", 
-        #"llama3.1", 
-        #"granite3.2", 
-        #"mistral-nemo", 
-        #"qwen2.5"
+        "llama3.1", 
+        "granite3.2", 
+        "mistral-nemo", 
+        "qwen2.5"
         ]: 
         run_all_problems_for_model(model)

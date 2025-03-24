@@ -36,22 +36,27 @@ If he sold 360 kilograms of pears that day, how many kilograms did he sell in th
 
 
 ### Step 3 (TOOL CALL)
-[TOOL CALL] divide(a=360, b=2) -> 180.0
+[TOOL CALL] divide(a=360, b=3)
 
 ### Step 4 (TOOL)
-180.0
+120.0
 
 ### Step 5 (AI)
+Since the salesman sold twice as much pears in the afternoon than in the morning, let's call the amount he sold in the morning x. Then, the amount he sold in the afternoon is 2x.
 
+We know that the total amount of pears sold that day is 360 kilograms. So, we can set up the equation:
 
-### Step 6 (TOOL CALL)
-[TOOL CALL] multiply(a=180, b=2) -> 360
+x + 2x = 360
 
-### Step 7 (TOOL)
-360
+Combine like terms:
 
-### Step 8 (AI)
-The salesman sold 180 kilograms of pears in the morning and 360 kilograms in the afternoon.
+3x = 360
+
+Divide both sides by 3:
+
+x = 120
+
+So, the salesman sold 120 kilograms of pears in the morning and 240 kilograms (twice as much) in the afternoon.
 
 ## Ground Truth Solution
 - Morning: 120 kg

@@ -33,7 +33,7 @@ A student chose a number, multiplied it by 2, then subtracted 138 from the resul
 What was the number he chose?
 
 ### Step 2 (AI)
-To find the number the student chose, we need to reverse the operations performed. First, we add 138 to 102, then divide the result by 2.
+[TOOL_CALLS] To find the number the student chose, we need to reverse the operations performed. First, we add 138 to 102, then divide the result by 2.
 
 Let's start by adding 138 to 102.
 ```

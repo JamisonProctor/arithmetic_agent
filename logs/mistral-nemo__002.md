@@ -49,6 +49,24 @@ According to the problem:
 Now, let's solve for P step by step.
 
 First, I'll add up all the terms on the left side of the equation:
+```json
+{
+  "action": "add",
+  "arguments": {
+    "a": 2,
+    "b": 1
+  }
+}
+```
+Then, I'll subtract that sum from 26 to solve for P:
+```json
+{
+  "action": "subtract",
+  "arguments": {
+    "a": 26,
+    "b": 4
+  }
+}
 ```
 
 ## Ground Truth Solution

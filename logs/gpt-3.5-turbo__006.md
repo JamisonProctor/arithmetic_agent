@@ -50,26 +50,17 @@ We can set up the following equation based on the distance formula:
 
 Let's solve this equation step by step using the tools available.
 
-### Step 2.1 (TOOL CALL)
-subtract(a=380, b=4)
-
 ### Step 3 (TOOL)
 376
 
 ### Step 4 (AI)
 
 
-### Step 4.1 (TOOL CALL)
-divide(a=376, b=8)
-
 ### Step 5 (TOOL)
 47.0
 
 ### Step 6 (AI)
 
-
-### Step 6.1 (TOOL CALL)
-add(a=47, b=5)
 
 ### Step 7 (TOOL)
 52

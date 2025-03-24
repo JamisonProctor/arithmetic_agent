@@ -39,25 +39,22 @@ Together the three of them picked 26 kg of chestnuts.
 How many kilograms did each of them pick?
 
 ### Step 2 (AI)
-Let's denote the amount of chestnuts picked by Peter as \( P \) kg.  
-According to the given information:
-1. Mary picked twice as much chestnuts as Peter, so Mary picked \( 2P \) kg.
-2. Lucy picked 2 kg more than Peter, so Lucy picked \( P + 2 \) kg.
-3. Together, they picked 26 kg, so \( P + 2P + (P + 2) = 26 \).
+Let's assign variables to represent the amount of chestnuts picked by each person.  
+Let's say:
+- The amount picked by Peter is \( P \) kg.
+- Mary picked twice as much as Peter, so Mary picked \( 2P \) kg.
+- Lucy picked 2 kg more than Peter, so Lucy picked \( P + 2 \) kg.
 
-Now, we can set up the equation and solve for \( P \) to find out how many kilograms each of them picked.
+We know that the total amount picked by all three is 26 kg, so we have the equation:
+\[ P + 2P + (P + 2) = 26 \]
 
-### Step 2.1 (TOOL CALL)
-subtract(a=26, b={'a': 3, 'b': 1})
+Now, we can solve this equation step by step using tools. Let's start by simplifying the equation.
 
 ### Step 3 (TOOL)
-[ERROR: unsupported operand type(s) for -: 'int' and 'dict']
+3
 
 ### Step 4 (AI)
 
-
-### Step 4.1 (TOOL CALL)
-add(a=3, b=1)
 
 ### Step 5 (TOOL)
 4
@@ -65,24 +62,28 @@ add(a=3, b=1)
 ### Step 6 (AI)
 
 
-### Step 6.1 (TOOL CALL)
-multiply(a=4, b=2)
-
 ### Step 7 (TOOL)
-8
+6
 
 ### Step 8 (AI)
 
 
-### Step 8.1 (TOOL CALL)
-add(a=8, b=2)
-
 ### Step 9 (TOOL)
-10
+12
 
 ### Step 10 (AI)
-After solving the equation, we find that Peter picked 4 kg, Mary picked 8 kg, and Lucy picked 10 kg of chestnuts.  
-Therefore, Peter picked 4 kg, Mary picked 8 kg, and Lucy picked 10 kg.
+
+
+### Step 11 (TOOL)
+14
+
+### Step 12 (AI)
+After solving the equation, we find that:
+- Peter picked 4 kg of chestnuts.
+- Mary picked 8 kg of chestnuts.
+- Lucy picked 6 kg of chestnuts.
+
+Therefore, Peter picked 4 kg, Mary picked 8 kg, and Lucy picked 6 kg of chestnuts.
 
 ## Ground Truth Solution
 - Peter picked 6 kg

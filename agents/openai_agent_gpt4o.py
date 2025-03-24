@@ -9,8 +9,10 @@ with open("prompts/basic_prompt.md", "r") as f:
 sys_msg = SystemMessage(content=prompt)
 
 # Create LLM
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+
+# ✅ Bind tools HERE and use the bound version throughout
 llm_with_tools = llm.bind_tools(basic_tools, parallel_tool_calls=True)
 
-# Build agent
-agent_graph = build_assistant_with_tools(llm, basic_tools, sys_msg)
+# ✅ Pass the pre-bound version into the builder
+agent_graph = build_assistant_with_tools(llm_with_tools, basic_tools, sys_msg)

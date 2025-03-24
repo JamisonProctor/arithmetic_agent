@@ -41,26 +41,34 @@ If two of the tractors were moved to another field, then the remaining 4 tractor
 How many hectares a day would one tractor plough then?
 
 ### Step 2 (AI)
-Let's denote the number of hectares ploughed by one tractor in a day as \( x \).
+Let's denote the rate at which one tractor ploughs the field as \( x \) hectares per day.
 
-From the information given, we know that when 6 tractors work together, each ploughs 120 hectares a day. This means that the total area ploughed by 6 tractors in a day is \( 6 \times 120 = 720 \) hectares.
+From the information given, we know that when 6 tractors work together, each of them ploughs 120 hectares a day. This means that the total rate of 6 tractors working together is \( 6 \times 120 = 720 \) hectares per day.
 
-We are also told that 6 tractors can plough the field in 4 days. Therefore, the total area of the field is \( 720 \times 4 = 2880 \) hectares.
+We are also told that when 6 tractors plough the field in 4 days, the total area of the field is \( 720 \times 4 = 2880 \) hectares.
 
-When 4 tractors work together, they can plough the same field in 5 days. This means that the total area ploughed by 4 tractors in a day is \( 4 \times x = 2880 \) hectares.
+Now, if two tractors are moved to another field, leaving 4 tractors to plough the same field in 5 days, the total area of the field remains the same at 2880 hectares.
 
-Now, we can calculate the value of \( x \) to find out how many hectares one tractor would plough in a day.
+Let's calculate the rate at which 4 tractors plough the field in 5 days:
+- The total rate of 4 tractors working together is \( 4 \times x = 4x \) hectares per day.
+- The total area ploughed by 4 tractors in 5 days is \( 4x \times 5 = 20x \) hectares.
 
-### Step 2.1 (TOOL CALL)
-divide(a=2880, b=4)
+Since the total area of the field is 2880 hectares, we can set up an equation:
+\[ 20x \times 5 = 2880 \]
+
+Let's solve this equation step by step using the tools.
 
 ### Step 3 (TOOL)
-720.0
+576.0
 
 ### Step 4 (AI)
-If 4 tractors plough the field in 5 days, then each tractor would plough 720 hectares in a day. 
 
-Therefore, when one tractor is working alone after two tractors are moved, it would plough 720 hectares in a day.
+
+### Step 5 (TOOL)
+28.8
+
+### Step 6 (AI)
+After solving the equation, we find that each tractor would plough 28.8 hectares per day if two tractors were moved to another field.
 
 ## Ground Truth Solution
 Each of the four tractors would plough 144 hectares per day.

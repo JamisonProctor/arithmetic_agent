@@ -35,87 +35,70 @@ If we increase the length of each side by 1 cm, then the area of the rectangle w
 Find the lengths of all sides.
 
 ### Step 2 (AI)
-Let's denote the length of one side of the rectangle as \( x \) cm and the length of the other side as \( x - 3 \) cm.
+Let's denote the length of the shorter side as \( x \) cm.  
+Then the length of the longer side will be \( x + 3 \) cm.
 
-After increasing the length of each side by 1 cm, the new lengths become \( x + 1 \) cm and \( x - 3 + 1 = x - 2 \) cm.
+After increasing the length of each side by 1 cm, the new dimensions will be \( x + 1 \) cm and \( x + 4 \) cm.
 
 The area of a rectangle is given by the formula:  
 \[ \text{Area} = \text{Length} \times \text{Width} \]
 
 Given that the area increases by 18 cm², we can set up the following equation:  
-\[ (x + 1)(x - 2) - x(x - 3) = 18 \]
+\[ (x + 1)(x + 4) - x(x + 3) = 18 \]
 
-Let's simplify and solve this equation step by step using mathematical tools.
-
-### Step 2.1 (TOOL CALL)
-multiply(a=3, b=1)
+Let's simplify this equation step by step using the tools.
 
 ### Step 3 (TOOL)
-3
+1
 
 ### Step 4 (AI)
 
 
-### Step 4.1 (TOOL CALL)
-subtract(a=1, b=2)
-
 ### Step 5 (TOOL)
--1
+5
 
 ### Step 6 (AI)
 
 
-### Step 6.1 (TOOL CALL)
-multiply(a=1, b=-2)
-
 ### Step 7 (TOOL)
--2
+4
 
-### Step 8 (TOOL)
--3
-
-### Step 9 (AI)
+### Step 8 (AI)
 
 
-### Step 9.1 (TOOL CALL)
-multiply(a=1, b=-3)
+### Step 9 (TOOL)
+3
 
-### Step 10 (TOOL)
--5
-
-### Step 11 (AI)
+### Step 10 (AI)
 
 
-### Step 11.1 (TOOL CALL)
-add(a=-2, b=-3)
+### Step 11 (TOOL)
+4
 
-### Step 12 (TOOL)
--4
-
-### Step 13 (AI)
+### Step 12 (AI)
 
 
-### Step 13.1 (TOOL CALL)
-add(a=1, b=-5)
-
-### Step 14 (TOOL)
-20
-
-### Step 15 (AI)
-
-
-### Step 15.1 (TOOL CALL)
-multiply(a=-4, b=-5)
-
-### Step 16 (TOOL)
+### Step 13 (TOOL)
 2
 
-### Step 17 (AI)
-The lengths of the sides of the rectangle are 5 cm and 2 cm.  
-Therefore, the sides of the rectangle are 5 cm and 2 cm.
+### Step 14 (AI)
 
-### Step 17.1 (TOOL CALL)
-subtract(a=20, b=18)
+
+### Step 15 (TOOL)
+10
+
+### Step 16 (TOOL)
+18
+
+### Step 17 (AI)
+The equation simplifies to:  
+\[ 5x + 4 - 3x = 18 \]  
+\[ 2x + 4 = 18 \]  
+\[ 2x = 14 \]  
+\[ x = 7 \]
+
+So, the length of the shorter side is 7 cm, and the length of the longer side is 10 cm.  
+Therefore, the lengths of all sides are 7 cm and 10 cm.
 
 ## Ground Truth Solution
 The sides of the rectangle are 10 cm and 7 cm.

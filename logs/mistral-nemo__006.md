@@ -41,27 +41,24 @@ If the car drives 5 km/hr faster than the truck, what are their speeds?
 ### Step 2 (AI)
 [TOOL_CALLS] To solve this problem, we need to determine the speeds of both the car and the truck. Let's denote the speed of the truck as \( v \) km/hr. Then, the speed of the car would be \( v + 5 \) km/hr.
 
-When they meet after 4 hours, the distance covered by both vehicles together is equal to the total distance between the two towns, which is 380 km.
+When they meet after 4 hours, the distance covered by both vehicles together is equal to the total distance between the towns, which is 380 km.
 
 The equation representing this situation is:
 \[ (v + (v + 5)) \times 4 = 380 \]
 
-Let's solve for \( v \) step by step. First, we'll expand the left side of the equation:
-\[ 2v + 5 = 380 / 4 \]
-\[ 2v + 5 = 95 \]
+Let's solve for \( v \) step by step. First, we'll expand the equation:
+\[ 4v + 20 = 380 \]
 
-Now, let's subtract 5 from both sides to isolate the term with \( v \):
-\[ 2v = 95 - 5 \]
-\[ 2v = 90 \]
+Now, let's subtract 20 from both sides to isolate the term with \( v \):
+\[ 4v = 360 \]
 
-Next, we'll divide both sides by 2 to solve for \( v \):
-\[ v = 90 / 2 \]
-\[ v = 45 \]
+Next, we'll divide both sides by 4 to solve for \( v \):
+\[ v = 90 \]
 
-So, the speed of the truck is 45 km/hr. Now, let's find the speed of the car:
-\[ \text{Car speed} = v + 5 \]
-\[ \text{Car speed} = 45 + 5 \]
-\[ \text{Car speed} = 50 \]
+So, the speed of the truck is 90 km/hr. Now, let's find the speed of the car:
+\[ \text{Car's speed} = v + 5 = 90 + 5 = 95 \text{ km/hr} \]
+
+Therefore, the speeds of the car and the truck are 95 km/hr and 90 km/hr, respectively.
 
 ## Ground Truth Solution
 - Truck speed = 45 km/hr 

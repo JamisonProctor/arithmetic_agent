@@ -45,7 +45,7 @@ According to the problem:
 - Mary picked twice as much as Peter, so she picked 2P.
 - Lucy picked 2 kg more than Peter, so she picked P + 2.
 
-The total amount they picked is given as 26 kg, so we can write the equation:
+Together, they picked 26 kg, so we can write the equation:
 
 P (Peter's amount) + 2P (Mary's amount) + (P + 2) (Lucy's amount) = 26
 
@@ -54,27 +54,21 @@ Combining like terms gives us:
 P + 2P + P + 2 = 26
 4P + 2 = 26
 
-Now, let's solve for P using the `subtract` and `divide` tools.
+Now, let's solve for P using subtraction and division tools.
 
 1. Subtract 2 from both sides of the equation to isolate the term with P:
-   - `subtract(26, 2)` gives us 24.
-   So, we have 4P = 24.
+   `subtract(26, 2)`
 
-2. Divide both sides by 4 to solve for P:
-   - `divide(24, 4)`.
+2. The result will give us 4P = 24. Now we divide by 4 to find P:
+   `divide(24, 4)`
 
-Now, let's calculate the values step-by-step using the tools.
+Let's execute these steps one at a time.
 
 Step 1: Subtract 2 from 26
-```add(26, -2)```
+`subtract(26, 2)`
 
 Step 2: Divide the result by 4
-```divide(result_from_step1, 4)```
-
-After obtaining the value of P, we can find out how much each person picked:
-- Peter picked P kg.
-- Mary picked `multiply(P, 2)` kg.
-- Lucy picked `add(P, 2)` kg.
+`divide(<result_from_step_1>, 4)`
 
 ## Ground Truth Solution
 - Peter picked 6 kg

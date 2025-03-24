@@ -41,9 +41,40 @@ If two of the tractors were moved to another field, then the remaining 4 tractor
 How many hectares a day would one tractor plough then?
 
 ### Step 2 (AI)
-[TOOL_CALLS] Let's calculate this step by step.
+Let's denote the total area of the field as A hectares.
 
-First, let's find out the total size of the field using the initial information that 6 tractors can plough it in 4 days.
+First, we know that 6 tractors can plough the entire field in 4 days. So, we can write the following equation:
+
+6 tractors * 120 hectares/day * 4 days = A
+
+Now, let's calculate the total area A:
+
+A = 6 * 120 * 4
+A = 2880 hectares
+
+Next, we are told that if two tractors leave, the remaining four can plough the same field in 5 days. So, we can write another equation for this scenario:
+
+4 tractors * x hectares/day * 5 days = A
+
+We already know that A is 2880 hectares, so we can substitute that value into the equation and solve for x (the number of hectares one tractor ploughs per day):
+
+2880 = 4 * x * 5
+2880 = 20x
+x = 2880 / 20
+x = 144
+
+So, one tractor would plough 144 hectares a day in the second scenario.
+
+Now, let's go ahead and call the tool to confirm our calculation:
+
+```json
+{
+  "action": "divide",
+  "arguments": {
+    "a": 2880,
+    "b": 20
+  }
+}
 ```
 
 ## Ground Truth Solution

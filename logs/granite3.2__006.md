@@ -39,83 +39,29 @@ They meet 4 hours later.
 If the car drives 5 km/hr faster than the truck, what are their speeds?
 
 ### Step 2 (AI)
-Let's denote the speed of the truck as x km/h. 
+1. Let's denote the speed of the truck as x km/h. Therefore, the speed of the car would be (x + 5) km/h.
+2. The distance covered by each vehicle until they meet is equal to half of the total distance between them because they are moving towards each other. So, each vehicle covers a distance of 380 / 2 = 190 km.
+3. We can set up two equations based on this information:
+   - For the truck: x * 4 = 190 (since it travels for 4 hours)
+   - For the car: (x + 5) * 4 = 190 (since it also travels for 4 hours but at a faster speed)
+4. Let's solve these equations one by one using the tools provided.
 
-According to the problem, the car travels at (x + 5) km/h because it moves 5 km/h faster than the truck.
+   First, I'll call `divide(380, 2)` to find half of the total distance:
+   ```add(380, 0)```
+5. Now, let's solve the equation for the truck's speed:
+   - `subtract(190, multiply(x, 4)) = 0`
 
-Since they meet after 4 hours, we can set up an equation based on the fact that the sum of the distances covered by both vehicles equals the total distance between them:
+   I'll call `divide(190, 4)` to isolate x:
+   ```add(190, 0)```
+6. Finally, let's solve the equation for the car's speed using the value of x obtained from the previous step:
+   - `subtract(190, multiply(add(x, 5), 4)) = 0`
 
-Distance covered by car + Distance covered by truck = Total distance
+   I'll call `divide(190, 4)` and then add 5 to get the car's speed:
+   ```add(190, 0)```
 
-This translates to:
-
-4 * (x + 5) + 4 * x = 380
-
-Now, let's solve this step-by-step using tools.
-
-1. First, distribute the 4 in both terms on the left side of the equation:
-
-   `multiply(4, add(x, 5)) + multiply(4, x) = 380`
-
-2. Next, call the 'add' tool to combine like terms:
-
-   `add(result_1, result_2)`
-
-3. Finally, divide both sides of the equation by 4 to solve for x:
-
-   `divide(result_3, 4)`
-
-Let's execute these steps one at a time.
-
-Step 1:
-```
-multiply(4, add(x, 5)) + multiply(4, x) = 380
-```
-Calling `add` tool:
-```
-result_1 = add(4, 5) = 9
-result_2 = multiply(4, x) = 4x
-```
-So, the equation becomes:
-```
-9 + 4x = 380
-```
-
-Step 2:
-```
-add(9, 4x) = 380
-```
-Calling `add` tool:
-```
-result_3 = add(9, 4x) = 371 + 4x
-```
-So, the equation is now:
-```
-371 + 4x = 380
-```
-
-Step 3:
-```
-divide(371 + 4x, 4) = divide(380, 4)
-```
-Calling `divide` tool:
-```
-result_4 = divide(371, 4) = 92.75
-result_5 = divide(380, 4) = 95
-```
-So, the equation simplifies to:
-```
-92.75 + x = 95
-```
-
-Solving for x gives us:
-```
-x = 95 - 92.75 = 2.25
-```
-
-Therefore, the truck's speed is 2.25 km/h and the car's speed is 2.25 + 5 = 7.25 km/h. 
-
-Final answer: The truck travels at 2.25 km/h and the car travels at 7.25 km/h.
+Final Answer:
+- Truck's speed: x km/h
+- Car's speed: (x + 5) km/h
 
 ## Ground Truth Solution
 - Truck speed = 45 km/hr 

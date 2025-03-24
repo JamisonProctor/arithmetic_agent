@@ -44,18 +44,23 @@ How many hectares a day would one tractor plough then?
 
 
 ### Step 3 (TOOL CALL)
-[TOOL CALL] multiply(a=6, b=120) -> 720
+[TOOL CALL] multiply(a=6, b=120)
 
 ### Step 4 (TOOL)
 720
 
-### Step 5 (TOOL CALL)
-The total daily ploughing capacity of the 6 tractors is 720 hectares per day. 
+### Step 5 (AI)
+The total daily ploughing capacity of 6 tractors is 720 hectares per day. 
 
-Since each tractor can plough 120 hectares a day when all 6 are working together, we need to determine how much one tractor would plough if only 4 tractors were available.
+Since the field can be ploughed by 6 tractors in 4 days, the total area of the field would be:
+\[ \text{Total Area} = 720 \, \text{hectares/day} \times 4 \, \text{days} = 2880 \, \text{hectares} \]
 
-First, let's find out the total capacity of 4 tractors:
-[TOOL CALL] multiply(a=4, b=120) -> 480
+Now, if two tractors are moved to another field, only 4 tractors remain. These 4 tractors need to plough the same 2880 hectares in 5 days.
+
+Let's calculate how many hectares one of these 4 tractors would plough per day.
+<tool_call>
+{"name": "divide", "arguments": {"a": 2880, "b": 4 * 5}}
+</tool_call>
 
 ## Ground Truth Solution
 Each of the four tractors would plough 144 hectares per day.

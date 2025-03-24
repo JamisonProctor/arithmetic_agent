@@ -35,20 +35,16 @@ What was the number he chose?
 ### Step 2 (AI)
 Let's denote the number the student chose as \( x \).
 
-The student multiplied the number by 2, which gives us \( 2x \).
+1. The student multiplied the number by 2: \( 2x \).
+2. Then, the student subtracted 138 from the result: \( 2x - 138 \).
 
-Then the student subtracted 138 from the result, which gives us \( 2x - 138 \).
+The final result the student got was 102: \( 2x - 138 = 102 \).
 
-According to the information given, the result after these operations is 102. So, we have the equation:
+To find the number the student chose (\( x \)), we need to solve the equation \( 2x - 138 = 102 \).
 
-\[ 2x - 138 = 102 \]
+Let's calculate this step by step using arithmetic operations. 
 
-To find the value of \( x \), we need to solve this equation. Let's calculate it step by step using the tools available. 
-
-First, we will add 138 to both sides of the equation to isolate \( 2x \).
-
-### Step 2.1 (TOOL CALL)
-add(a=138, b=102)
+First, we need to isolate \( x \) by adding 138 to both sides of the equation.
 
 ### Step 3 (TOOL)
 240
@@ -56,16 +52,22 @@ add(a=138, b=102)
 ### Step 4 (AI)
 
 
-### Step 4.1 (TOOL CALL)
-divide(a=240, b=2)
-
 ### Step 5 (TOOL)
-120.0
+342
 
 ### Step 6 (AI)
-The value of \( x \) is 120. 
+After adding 138 to both sides of the equation, we have:
 
-Therefore, the number the student chose initially was 120.
+\( 2x = 240 \)
+
+Next, we need to solve for \( x \) by dividing both sides by 2.
+
+### Step 7 (TOOL)
+120.0
+
+### Step 8 (AI)
+The number the student chose was \( x = 120 \).  
+Therefore, the student chose the number 120.
 
 ## Ground Truth Solution
 The number he chose was 120.

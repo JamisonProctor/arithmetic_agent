@@ -42,22 +42,42 @@ If the car drives 5 km/hr faster than the truck, what are their speeds?
 
 
 ### Step 3 (TOOL CALL)
-[TOOL CALL] divide(a=380, b=4) -> 95.0
+[TOOL CALL] divide(a=360, b=8)
 
 ### Step 4 (TOOL)
-95.0
+45.0
 
 ### Step 5 (AI)
+To find the speed of the car and the truck, we need to use the fact that they meet after 4 hours.
 
+Let's denote the speed of the truck as x km/h. Then, the speed of the car is (x + 5) km/h.
 
-### Step 6 (TOOL CALL)
-[TOOL CALL] divide(a=95, b=4) -> 23.75
+Since distance = speed × time, we can set up an equation using the formula:
 
-### Step 7 (TOOL)
-23.75
+distance = speed × time
 
-### Step 8 (AI)
-The speed of the car is 23.75 km/hr and the speed of the truck is 18.75 km/hr.
+The total distance covered by both vehicles when they meet is equal to the initial distance between them, which is 380 km. Since they are moving towards each other, their combined distances will be equal to the initial distance.
+
+So, we can write:
+
+x × 4 + (x + 5) × 4 = 380
+
+Simplifying this equation, we get:
+
+4x + 4x + 20 = 380
+8x + 20 = 380
+
+Subtracting 20 from both sides gives us:
+
+8x = 360
+
+Now, dividing both sides by 8, we get:
+
+x = 45
+
+So, the speed of the truck is 45 km/h.
+
+Since the car drives 5 km/hr faster than the truck, its speed is (45 + 5) = 50 km/h.
 
 ## Ground Truth Solution
 - Truck speed = 45 km/hr 

@@ -42,61 +42,62 @@ How many kilograms did each of them pick?
 
 
 ### Step 3 (TOOL CALL)
-[TOOL CALL] add(a=x + 2, b=2*x) -> ERROR: add: both arguments must be int or float
+[TOOL CALL] add(a=Mary's chestnut picking (2x), b=Lucy's chestnut picking (x + 2))
 
 ### Step 4 (TOOL)
 [TOOL ERROR] add: both arguments must be int or float
 
 ### Step 5 (TOOL CALL)
-[TOOL CALL] multiply(a=x, b=3) -> ERROR: multiply: both arguments must be int or float
+[TOOL CALL] add(a=Peter's chestnut picking (x), b=Mary's chestnut picking (2x) + Lucy's chestnut picking (x + 2))
 
 ### Step 6 (TOOL)
-[TOOL ERROR] multiply: both arguments must be int or float
+[TOOL ERROR] add: both arguments must be int or float
 
 ### Step 7 (TOOL CALL)
-[TOOL CALL] add(a=(3*x) + 2, b=26) -> ERROR: add: both arguments must be int or float
+[TOOL CALL] add(a=x, b=2x + (x + 2))
 
 ### Step 8 (TOOL)
 [TOOL ERROR] add: both arguments must be int or float
 
 ### Step 9 (TOOL CALL)
-[TOOL CALL] subtract(a=(3*x) + 2, b=x) -> ERROR: subtract: both arguments must be int or float
+[TOOL CALL] add(a=0, b=3)
 
 ### Step 10 (TOOL)
-[TOOL ERROR] subtract: both arguments must be int or float
-
-### Step 11 (TOOL CALL)
-[TOOL CALL] divide(a=(3*x) + 2 - x, b=2) -> ERROR: divide: both arguments must be int or float
-
-### Step 12 (TOOL)
-[TOOL ERROR] divide: both arguments must be int or float
-
-### Step 13 (TOOL CALL)
-[TOOL CALL] add(a=x + 2, b=2*x) -> ERROR: add: both arguments must be int or float
-
-### Step 14 (TOOL)
 [TOOL ERROR] add: both arguments must be int or float
 
-### Step 15 (TOOL CALL)
-[TOOL CALL] multiply(a=x, b=3) -> ERROR: multiply: both arguments must be int or float
+### Step 11 (AI)
+Let's try to solve the problem step by step.
 
-### Step 16 (TOOL)
-[TOOL ERROR] multiply: both arguments must be int or float
+1. Let Peter's chestnut picking be x.
+2. Mary picked twice as much chestnuts as Peter, so Mary's chestnut picking is 2x.
+3. Lucy picked 2 kg more than Peter, so Lucy's chestnut picking is x + 2.
+4. Together the three of them picked 26 kg of chestnuts, so we can write an equation:
 
-### Step 17 (TOOL CALL)
-Let's start by defining the variables:
+x + 2x + (x + 2) = 26
 
-* x = number of kg Peter picked
-* 2x = number of kg Mary picked (twice as much as Peter)
-* x + 2 = number of kg Lucy picked (2 kg more than Peter)
-
-We know that together they picked 26 kg, so we can write an equation:
+Now, let's simplify the equation:
 
 3x + 2 = 26
 
-Now, let's solve for x using the `subtract` tool:
+Subtracting 2 from both sides gives us:
 
-[TOOL CALL] subtract(a=3*x + 2, b=26)
+3x = 24
+
+Dividing both sides by 3 gives us:
+
+x = 8
+
+So Peter picked 8 kg of chestnuts.
+
+Mary picked twice as much chestnuts as Peter, so Mary's chestnut picking is 2x = 2(8) = 16 kg.
+
+Lucy picked 2 kg more than Peter, so Lucy's chestnut picking is x + 2 = 8 + 2 = 10 kg.
+
+Therefore, the answer is:
+
+Peter: 8 kg
+Mary: 16 kg
+Lucy: 10 kg
 
 ## Ground Truth Solution
 - Peter picked 6 kg

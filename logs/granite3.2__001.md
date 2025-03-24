@@ -37,13 +37,11 @@ Let's denote the amount of pears sold in the morning as x.
 
 According to the problem, the salesman sold twice as much in the afternoon, so that would be 2x.
 
-Together, the total amount sold for the day is x (morning) + 2x (afternoon) = 360 kilograms.
+Together, the total amount sold is x (morning) + 2x (afternoon) = 360 kilograms.
 
-This simplifies to 3x = 360. 
+This simplifies to 3x = 360.
 
 Now, I need to solve for x using division. 
-
-I will call the `divide` tool to find the value of x.
 
 `divide(360, 3)`
 

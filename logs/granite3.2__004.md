@@ -43,19 +43,19 @@ How many hectares a day would one tractor plough then?
 ### Step 2 (AI)
 Let's break this problem down step by step:
 
-1. We know that 6 tractors can plough 120 hectares per day together (since they can finish the field in 4 days). So, the total area of the field is 6 tractors * 120 hectares/day = 720 hectares.
+1. We know that 6 tractors can plough 120 hectares per day together. So, each tractor ploughs 120 / 6 = 20 hectares per day when working with 5 other tractors.
 
-2. If two tractors were moved away, we are left with 4 tractors. According to the problem, these 4 tractors can also plough the same field in 5 days. So, the total area of the field remains 720 hectares.
+2. Now, if we remove 2 tractors, we are left with 4 tractors. According to the problem, these 4 tractors can plough the same field in 5 days. 
 
-3. Now, let's find out how much one tractor can plough in a day when there are only 4 tractors working. The work done by 4 tractors in one day is 720 hectares / 5 days = 144 hectares/day.
+3. So, the total amount of work done by 4 tractors in 5 days is still 120 hectares (the size of the field). 
 
-4. Therefore, the amount one tractor can plough in a day when there are 4 tractors is 144 hectares/day divided by 4 tractors = 36 hectares/day.
+4. To find out how much one tractor ploughs in one day when there are only 4, we divide the total work by the number of tractors multiplied by the number of days: 120 / (4 * 5) = 6 hectares per day per tractor.
 
-So, one tractor would plough 36 hectares a day when there are only 4 tractors working. 
+Let's call the `divide` tool to calculate this:
 
-Let's call the tools to confirm our calculations:
+- `divide(120, multiply(4, 5))`
 
-- `divide(144, 4)` to find out how many hectares one tractor can plough in a day when there are 4 tractors.
+This will give us the number of hectares one tractor can plough in one day when there are only 4 tractors working.
 
 ## Ground Truth Solution
 Each of the four tractors would plough 144 hectares per day.

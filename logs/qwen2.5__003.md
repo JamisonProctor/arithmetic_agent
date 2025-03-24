@@ -38,7 +38,7 @@ How long is her book?
 
 
 ### Step 3 (TOOL CALL)
-[TOOL CALL] subtract(a=2/3*P, b=1/3*P) -> ERROR: subtract: both arguments must be int or float
+[TOOL CALL] subtract(a=2/3*x, b=1/3*x)
 
 ### Step 4 (TOOL)
 [TOOL ERROR] subtract: both arguments must be int or float
@@ -47,26 +47,24 @@ How long is her book?
 
 
 ### Step 6 (TOOL CALL)
-[TOOL CALL] multiply(a=90, b=3) -> 270
+[TOOL CALL] subtract(a=2/3*x, b=1/3*x)
 
 ### Step 7 (TOOL)
-270
+[TOOL ERROR] subtract: both arguments must be int or float
 
-### Step 8 (TOOL CALL)
-Let's denote the total length of the book as \( P \).
+### Step 8 (AI)
+It seems there was an error because the tool cannot handle symbolic expressions directly. Let's reason through this step by step.
 
-Sophia finished two-thirds of the book and has one-third left to read. The difference between what she has read and what she has left is 90 pages.
+Let \( x \) represent the total number of pages in the book. According to the problem, Sophia finished two-thirds of the book and has one-third left to read. The difference between the pages she has read and the pages she has left is 90 pages. We can express this as:
 
-This can be expressed with the equation:
-\[ \frac{2}{3}P - \frac{1}{3}P = 90 \]
+\[
+\frac{2}{3}x - \frac{1}{3}x = 90
+\]
 
-Simplifying this, we get:
-\[ \frac{1}{3}P = 90 \]
-
-To find \( P \), we multiply both sides by 3:
-\[ P = 90 \times 3 \]
-
-[TOOL CALL] multiply(a=90, b=3) -> 270
+Let's simplify the expression on the left side.
+<tool_call>
+{"name": "subtract", "arguments": {"a": 2/3, "b": 1/3}}
+</tool_call>
 
 ## Ground Truth Solution
 The book has 270 pages in total.

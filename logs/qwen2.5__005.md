@@ -36,19 +36,22 @@ What was the number he chose?
 
 
 ### Step 3 (TOOL CALL)
-[TOOL CALL] add(a=102, b=138) -> 240
+[TOOL CALL] add(a=102, b=138)
 
 ### Step 4 (TOOL)
 240
 
-### Step 5 (TOOL CALL)
-The student's operations can be represented by the equation:
+### Step 5 (AI)
 
-\[ \text{number} \times 2 - 138 = 102 \]
 
-From this, we derived that \( \text{number} \times 2 = 240 \). Now, to find the original number, we need to divide 240 by 2.
+### Step 6 (TOOL CALL)
+[TOOL CALL] divide(a=240, b=2)
 
-[TOOL CALL] divide(a=240, b=2) -> 120
+### Step 7 (TOOL)
+120.0
+
+### Step 8 (AI)
+The number the student chose was 120.0.
 
 ## Ground Truth Solution
 The number he chose was 120.

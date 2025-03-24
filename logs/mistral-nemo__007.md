@@ -35,38 +35,35 @@ If we increase the length of each side by 1 cm, then the area of the rectangle w
 Find the lengths of all sides.
 
 ### Step 2 (AI)
-[TOOL_CALLS] Let's denote the length of the shorter side as x. Then, the longer side would be x + 3.
+Let's denote the length of the shorter side as x. Then the longer side is x + 3.
 
-First, let's find the original area of the rectangle before increasing the length of each side by 1 cm:
-Original Area = Length × Width
-              = x(x + 3)
+The original area of the rectangle is x(x + 3).
 
-After increasing the length of each side by 1 cm, both sides become (x + 1) and (x + 4). The new area is then:
-New Area = (Length + 1)(Width + 1)
-          = (x + 1)(x + 4)
+After increasing each side by 1 cm, both sides become (x + 1) and (x + 4), respectively. So the new area is (x + 1)(x + 4).
 
-We are given that the increase in area is 18 cm². So, we can set up the following equation:
+According to the problem, the increase in area is 18 cm²:
 
 (x + 1)(x + 4) - x(x + 3) = 18
 
-Now, let's solve for x using the tools available.
+Expanding both sides:
 
-First, let's expand both expressions:
-Original Area = x^2 + 3x
-New Area     = x^2 + 5x + 4
-
-Subtracting the Original Area from the New Area gives us:
-(x^2 + 5x + 4) - (x^2 + 3x) = 18
 x^2 + 5x + 4 - x^2 - 3x = 18
+
+Simplifying:
+
 2x + 4 = 18
 
-Now, let's subtract 4 from both sides:
+Subtracting 4 from both sides:
+
 2x = 14
 
-Next, we'll divide by 2 to solve for x:
-`divide(14, 2)`
+Dividing by 2:
 
-Waiting for the result...
+x = 7
+
+So the shorter side is 7 cm and the longer side is 7 + 3 = 10 cm.
+
+The other two sides are the same as the length of the shorter side, which is 7 cm.
 
 ## Ground Truth Solution
 The sides of the rectangle are 10 cm and 7 cm.

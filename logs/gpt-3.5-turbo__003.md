@@ -39,14 +39,11 @@ Let's denote the total number of pages in the book as \( x \).
 
 1. Sophia finished two-thirds of the book, which is \( \frac{2}{3} \times x \) pages.
 2. She has yet to read one-third of the book, which is \( \frac{1}{3} \times x \) pages.
-3. According to the calculation, she finished 90 more pages than she has yet to read, so we have the equation:
+3. According to her calculation, she finished 90 more pages than she has yet to read, so we have the equation:
 
 \[ \frac{2}{3} \times x = \frac{1}{3} \times x + 90 \]
 
 To find the total number of pages in the book, we need to solve this equation. Let's calculate it step by step.
-
-### Step 2.1 (TOOL CALL)
-multiply(a=2, b=1)
 
 ### Step 3 (TOOL)
 2
@@ -54,26 +51,17 @@ multiply(a=2, b=1)
 ### Step 4 (AI)
 
 
-### Step 4.1 (TOOL CALL)
-divide(a=2, b=3)
-
 ### Step 5 (TOOL)
 0.6666666666666666
 
 ### Step 6 (AI)
 
 
-### Step 6.1 (TOOL CALL)
-multiply(a=1, b=1)
-
 ### Step 7 (TOOL)
 1
 
 ### Step 8 (AI)
 
-
-### Step 8.1 (TOOL CALL)
-multiply(a=1, b=1)
 
 ### Step 9 (TOOL)
 1
@@ -84,17 +72,11 @@ multiply(a=1, b=1)
 ### Step 11 (AI)
 
 
-### Step 11.1 (TOOL CALL)
-add(a=90, b=0.6666666666666666)
-
 ### Step 12 (TOOL)
 272.00000000000006
 
 ### Step 13 (AI)
 The total number of pages in Sophia's book is 272 pages.
-
-### Step 13.1 (TOOL CALL)
-divide(a=90.66666666666667, b=0.3333333333333333)
 
 ## Ground Truth Solution
 The book has 270 pages in total.

@@ -35,28 +35,32 @@ She calculated that she finished 90 more pages than she has yet to read.
 How long is her book?
 
 ### Step 2 (AI)
-To solve this problem, we need to find out how many pages Sophia has left to read and then add that to the number of pages she has already read.
+To solve this problem, we need to determine how many pages Sophia has left to read and then add that to the number of pages she has already read.
 
-First, let's denote the total number of pages in the book as P. According to the information given:
+Let's denote the total number of pages in the book as P and the number of pages Sophia has read as R. According to the information given:
 
-1. Sophia finished two-thirds of the book, so she has read (2/3)P pages.
-2. She has yet to read 1P - (2/3)P = (1/3)P pages.
+1. Sophia finished two-thirds of the book, so:
+   R = (2/3) * P
 
-We are told that the number of pages she has read is 90 more than the number of pages she has left to read:
+2. She calculated that she finished 90 more pages than she has yet to read, which means:
+   R = P - (P - R)
+   R + (P - R) = 90
+   P = 90
 
-(2/3)P = (1/3)P + 90
+Now we know the total number of pages in the book is 90. To find out how many pages Sophia has left to read, we can use the first equation:
 
-Now, let's solve for P. We can subtract (1/3)P from both sides to get:
+R = (2/3) * P
+R = (2/3) * 90
+R = 60
 
-(2/3)P - (1/3)P = 90
-(1/3)P = 90
+So, Sophia has read 60 pages and has 30 pages left to read. The total length of her book is the sum of these two amounts:
 
-To find P, we multiply both sides by 3:
+Total Length = Pages Read + Pages Left to Read
+Total Length = R + (P - R)
+Total Length = 60 + (90 - 60)
+Total Length = 90
 
-P = 90 * 3
-P = 270
-
-So, the book has a total of 270 pages.
+Therefore, Sophia's book is 90 pages long.
 
 ## Ground Truth Solution
 The book has 270 pages in total.

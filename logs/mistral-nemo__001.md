@@ -33,29 +33,24 @@ A salesman sold twice as much pears in the afternoon than in the morning.
 If he sold 360 kilograms of pears that day, how many kilograms did he sell in the morning and how many in the afternoon?
 
 ### Step 2 (AI)
-[TOOL_CALLS] Let's denote the number of kilograms of pears sold in the morning as x. According to the problem, twice that amount was sold in the afternoon, so we can express the afternoon sales as 2x.
+[TOOL_CALLS] To solve this problem, we need to determine how much the salesman sold in the morning and then calculate twice that amount for the afternoon.
 
-The total sales for the day were 360 kilograms, which is the sum of the morning and afternoon sales. Therefore, we can write the equation:
+Let's denote the number of kilograms sold in the morning as x. According to the problem, the salesman sold twice as much in the afternoon, which would be 2x.
 
-x + 2x = 360
+The total amount sold throughout the day is the sum of the morning and afternoon sales:
+x (morning) + 2x (afternoon) = 360 kg
 
 Combining like terms, we get:
+3x = 360 kg
 
-3x = 360
+To find x, we divide both sides of the equation by 3:
+x = 360 kg / 3
+x = 120 kg
 
-To find the value of x, we need to divide both sides of the equation by 3:
+So, the salesman sold 120 kilograms in the morning. To find out how much he sold in the afternoon, we multiply this amount by 2:
+Afternoon sales = 2 * 120 kg = 240 kg
 
-```json
-{
-  "function": "divide",
-  "arguments": {
-    "a": 360,
-    "b": 3
-  }
-}
-```
-
-Let's wait for the result before proceeding.
+Therefore, the salesman sold 120 kilograms of pears in the morning and 240 kilograms in the afternoon.
 
 ## Ground Truth Solution
 - Morning: 120 kg

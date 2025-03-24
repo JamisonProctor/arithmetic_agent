@@ -35,23 +35,24 @@ What was the number he chose?
 ### Step 2 (AI)
 Let's call the number the student chose "x". 
 
-According to the problem, the student performed the following operations on x:
+According to the problem, the student performed the following operations:
 
-1. Multiplied x by 2: 2 * x
-2. Subtracted 138 from the result: (2 * x) - 138 = 102
+1. Multiplied x by 2: `multiply(x, 2)`
+2. Subtracted 138 from the result: `subtract(result_of_step_1, 138)`
 
-First, I will use the `subtract` tool to isolate the multiplication part of the equation:
+The final result of these operations is given as 102. 
 
-- Subtract 138 from 102: `subtract(102, 138)`
+So, we can set up the equation: `subtract(multiply(x, 2), 138) = 102`. 
 
-After getting the result of this subtraction, I will use the `add` tool to solve for x. 
+Following the rules, I will call the tools one at a time to solve this equation.
 
-Let's start with the first step:
+First, let's find the result of multiplying x by 2:
 
-1. Subtract 138 from 102:
-   - `result_sub = subtract(102, 138)`
+- Tool to call: `multiply(x, 2)`
 
-Now, I wait for the result of this subtraction before proceeding to the next step.
+After getting this result, I will subtract 138 from it and compare with 102. 
+
+Let's start with the first tool call.
 
 ## Ground Truth Solution
 The number he chose was 120.
